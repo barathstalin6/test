@@ -1,0 +1,9 @@
+{
+  "name": "GitHub Test Payment Handler",
+  "short_name": "GH-Pay",
+  "serviceworker": {
+    "src": "/test/sw.js",
+    "scope": "/test/",
+    "use_cache": false
+  }
+}
