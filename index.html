@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Payment Handler Test</title>
+</head>
+<body>
+  <h2>GitHub Pages Payment Handler Test</h2>
+  <button id="pay">Pay</button>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/test/sw.js");
+    }
+
+    document.getElementById("pay").onclick = async () => {
+      const methodData = [{
+        supportedMethods:
+          "https://barathstalin6.github.io/test/han/payment-method-manifest.json"
+      }];
+
+      const details = {
+        total: {
+          label: "Test",
+          amount: { currency: "USD", value: "1.00" }
+        }
+      };
+
+      try {
+        const req = new PaymentRequest(methodData, details);
+        const res = await req.show();
+        await res.complete("success");
+        alert("Payment success");
+      } catch (e) {
+        alert(e);
+        console.error(e);
+      }
+    };
+  </script>
+</body>
+</html>
