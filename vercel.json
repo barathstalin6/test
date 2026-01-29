@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/han/payment-method-manifest.json",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<payment-method-manifest.json>; rel=\"payment-method-manifest\""
+        }
+      ]
+    }
+  ]
+}
